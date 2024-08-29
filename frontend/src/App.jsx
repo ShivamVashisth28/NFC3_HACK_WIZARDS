@@ -7,16 +7,21 @@ import PetProfile from "./pages/PetProfile"
 import SheltorProfile from "./pages/SheltorProfile"
 import Sheltors from "./pages/Sheltors"
 import PageNotFound from "./pages/PageNotFound"
+import { useRecoilState } from "recoil"
+import userState from "./atoms/userStateAtom"
 
 function App() {
+
+  const [isUserLoggedIn, setIsUserLoggedIn] = useRecoilState(userState)
+  
 
   return (
     <>
       <BrowserRouter>
          <Routes>
             <Route path="/" element={<Home/>} />
-            <Route path="/login" element={<Login/>} />
-            <Route path="/signup" element={<Signup/>} />
+            <Route path="/login"  element={  <Login/>}  />
+            <Route path="/signup" element={ <Signup/>} />
             <Route path="/pets" element={<Pet/>} />
             <Route path="/sheltors" element={<Sheltors/>} />
             <Route path="/pets/:petId" element={<PetProfile/>} />
